@@ -20,6 +20,8 @@ class ProductPage(BasePage):
 
     def should_be_sucess_add_message(self, product_name):
         message = self.is_element_present(*AddingToBasket.ADDED_PRODUCT_MESSAGE).text
+        if message != product_name:
+            print(f'Product name "{product_name}" from product page not equal product "{message}" in basket')
         assert message == product_name, 'Added wrong product name to basket!'
         return message
 
