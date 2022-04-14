@@ -16,6 +16,7 @@ def pytest_addoption(parser):
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
+    myprint('I am fixture in conftest.py')
     myprint(f'Using {browser_name} browser')
     myprint(f'User language {user_language}')
     browser = None
@@ -41,4 +42,6 @@ def browser(request):
     
     yield browser
     myprint("browser quit")
+    #while True:
+     #  pass
     browser.quit()

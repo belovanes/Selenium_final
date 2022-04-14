@@ -30,3 +30,7 @@ class ProductPage(BasePage):
         assert price == product_price, 'Added product with wrong price!'
         return price
 
+    def should_not_be_success_message(self, product_name):
+        assert self.is_not_element_present(*AddingToBasket.ADDED_PRODUCT_MESSAGE), 'Success message found, but not should be!'
+
+
