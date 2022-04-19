@@ -2,7 +2,7 @@
 from selenium import webdriver
 
 def myprint(st):
-    print(f'\n\t\t--------+ {st} +--------\n')  # вывод контрольных точек
+    print(f'\n\t--------+ {st} +--------\n')  # вывод контрольных точек
 
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default='chrome',

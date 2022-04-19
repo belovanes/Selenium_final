@@ -1,24 +1,31 @@
 from .base_page import BasePage
 from .locators import AddingToBasket
+import pytest
 
 
 class ProductPage(BasePage):
     def should_be_add_2_basket_button(self):
+        print('Try to find "Add to basket" button...', end='')
         button = self.is_element_present(*AddingToBasket.ADD2BASKET_BUTTON)
         assert button, 'Button add to basket not found!'
+        print(f'Ok, button found, text="{button.text}"')
         return button
 
     def should_be_product_name(self):
+        print('Try to find product name...', end='')
         product_name = self.is_element_present(*AddingToBasket.PRODUCT_NAME)
         assert product_name, 'Book name not found on product page!'
+        print(f'Ok, found product_name="{product_name.text}"')
         return product_name.text
 
     def should_be_product_price(self):
+        print('Try to find product price...', end='')
         product_price = self.is_element_present(*AddingToBasket.PRODUCT_PRICE)
         assert product_price, 'Price not found on product page!'
+        print(f'Ok, found product_price="{product_price.text}"')
         return product_price.text.split()[0]
 
-    def should_be_sucess_add_message(self, product_name):
+    def should_be_success_add_message(self, product_name):
         message = self.is_element_present(*AddingToBasket.ADDED_PRODUCT_MESSAGE).text
         if message != product_name:
             print(f'Product name "{product_name}" from product page not equal product "{message}" in basket')
