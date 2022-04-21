@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement as WE
 from .locators import BasePageLocators
 import math
-""" run with cmd: pytest -v -s --browser_name=hchrome --tb=line --language=en test_main_page.py"""
+
 
 class BasePage():
     def __init__(self, browser, url, timeout=5):

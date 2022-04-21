@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import AddingToBasket
-import pytest
 
 
 class ProductPage(BasePage):
@@ -38,6 +37,8 @@ class ProductPage(BasePage):
         return price
 
     def should_not_be_success_message(self, product_name):
+        print('Try to find success message...', end='')
         assert self.is_not_element_present(*AddingToBasket.ADDED_PRODUCT_MESSAGE), 'Success message found, but not should be!'
+        print('Ok, success message not found.')
 
 
