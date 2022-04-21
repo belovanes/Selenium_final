@@ -6,16 +6,10 @@ import random
 
 """ Cmd for run tests: pytest -v -s --browser_name=hchrome --tb=line --language=en -m need_review"""
 
-#LINK = 'http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear'
-#LINK = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer'
 LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
-#   пример сложной параметризации. Тест с параметром num=7 помечаем как падающий
-# @pytest.mark.parametrize('num', [*(i for i in range(7)), pytest.param("7", marks=pytest.mark.xfail),'8','9'])
 @pytest.mark.need_review
-def test_guest_can_add_2_basket(browser):
-#    curlink = f'{LINK}{num}'
-#    print(f'Current LINK={curlink}')
+def test_guest_can_add_product_to_basket(browser):
     page = ProductPage(browser, LINK)
     page.open()
     product_name = page.should_be_product_name()
@@ -90,7 +84,7 @@ class TestUserAddToBasketFromProductPage:
         page.should_not_be_success_message(product_name)
 
     @pytest.mark.need_review
-    def test_user_can_add_2_basket(self, browser):
+    def test_user_can_add_product_to_basket(self, browser):
         page = ProductPage(browser, LINK)
         page.open()
         page.should_be_authorized_user()
@@ -103,4 +97,3 @@ class TestUserAddToBasketFromProductPage:
         print(f'Added "{added_product}" to basket')
         added_product_price = page.should_be_correct_price(product_price)
         print(f'Price of added "{added_product}" is {added_product_price}')
-

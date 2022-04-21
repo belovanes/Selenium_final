@@ -2,8 +2,6 @@ from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
 
-#LINK = "http://selenium1py.pythonanywhere.com/de/catalogue/the-shellcoders-handbook_209/?promo=midsummer"
-#LINK = "http://selenium1py.pythonanywhere.com/de/catalogue/the-shellcoders-handbook_209/"
 LINK = "http://selenium1py.pythonanywhere.com/ru"
 
 
